@@ -1,5 +1,5 @@
 <app-header></app-header>
-
+<!-- 
 <div class="content">
   <table class="table">
     <thead class="thead-dark">
@@ -32,3 +32,9 @@
     </tbody>
   </table>
 </div>
+ -->
+
+<button routerLink="manager">Manager Page</button>
+<button routerLink="admin">Admin Page</button>
+<button (click)="logout()">logout</button>
+<router-outlet></router-outlet>

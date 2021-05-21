@@ -1,3 +1,4 @@
+import { KeycloakService } from 'keycloak-angular';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-tasks';
+  title = 'keycloak test with springboot';
+  constructor(private keycloakService: KeycloakService) {}
+  logout() {
+    this.keycloakService.logout();
+  }
 }
