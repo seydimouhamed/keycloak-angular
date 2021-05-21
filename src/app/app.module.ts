@@ -8,12 +8,18 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
 import { initializer } from '../utils/app-init';
+import { AdminComponent } from './components/admin/admin.component';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
+import { ManagerComponent } from './components/manager/manager.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdminComponent,
+    AccessDeniedComponent,
+    ManagerComponent
   ],
   imports: [
     BrowserModule,
