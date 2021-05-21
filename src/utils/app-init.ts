@@ -11,14 +11,18 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
                     realm: environment.keycloak.realm,
                     clientId: environment.keycloak.clientId
                 },
-              loadUserProfileAtStartUp: false,
+                
+              // * Change loadUserProfileStartUp false => true*
+              loadUserProfileAtStartUp: true,
               initOptions: {
                 onLoad: 'login-required',
                 checkLoginIframe: true
               },
-              bearerExcludedUrls: []
+              // * ajout '/assets' *
+              bearerExcludedUrls: ['/assets']
             });
-            resolve();
+            // * ajout 'resolve' *
+            resolve(resolve);
           } catch (error) {
             reject(error);
           }
