@@ -12,4 +12,7 @@ export class AppComponent {
   logout() {
     this.keycloakService.logout();
   }
+  affichertoken() {
+    console.log(this.keycloakService.getToken());
+  }
 }

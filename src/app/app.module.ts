@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule, APP_INITIALIZER, DoBootstrap, ApplicationRef } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,13 +29,28 @@ import { ManagerComponent } from './components/manager/manager.component';
     HttpClientModule
   ],
   providers: [
-    { 
-      provide: APP_INITIALIZER, 
-      useFactory: initializer, 
-      deps: [ KeycloakService ], 
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      deps: [ KeycloakService ],
       multi: true
     }
   ],
+  // entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// export class AppModuled implements DoBootstrap{
+//   constructor(private keycloakService: KeycloakService){}
+//   ngDoBootstrap(appRef: ApplicationRef): void {
+//     this.keycloakService.init()
+//       .then(() => {
+//         console.log('keycloak Success...');
+//         appRef.bootstrap(AppComponent);
+//       })
+//       .catch((err) => {
+//         console.log('keycloak error', err);
+//       });
+//   }
+//  }
